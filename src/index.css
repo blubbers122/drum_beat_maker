@@ -5,9 +5,149 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: gray;
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#beat-maker-container {
+  width: 820px;
+  height: 525px;
+  background: black;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+#title {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#title:hover {
+  cursor: default;
+}
+
+#beat-count-label {
+  width: 722px;
+  margin: auto 8px auto auto;
+}
+
+.count {
+  text-align: center;
+  width: 41px;
+  margin: 2px;
+}
+
+#labels-and-grid {
+  width: 818px;
+  margin: 0px;
+}
+
+#drum-label {
+  margin: 2px auto auto 8px;
+  padding: 0px;
+  height: 32px;
+  text-align: right;
+  padding-top: 5px;
+}
+
+#composer-grid-box {
+  width: 722px;
+  height: 413px;
+  margin: auto 5px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+#drum-row {
+  width: 720px;
+  margin: 0px;
+}
+
+#count-bar-container {
+  position: relative;
+  transform: translate(710px, 0);
+  transition-duration: 3s;
+}
+
+#count-bar {
+  position: absolute;
+  z-index: 2;
+  width: 10px;
+  height: 410px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background: red;
+
+}
+
+.note {
+  border: 1px solid gray;
+  width: 41px;
+  height: 32px;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.note:hover {
+  border: 1px solid white;
+  background: #111111;
+  cursor: pointer;
+}
+
+#control-panel-container {
+  margin: 10px auto 10px 100px;
+  width: 695px;
+  height: 30px;
+  border-radius: 10px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+#start_stop {
+  font-size: 1.8em;
+  margin-right: 20px;
+}
+
+#reset {
+  font-size: 1.8em;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+#bpm {
+  width: 30px;
+  margin-left: 20px;
+  margin-right: 5px;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+#bpm-label {
+  margin: auto 0px;
+}
+
+#bpm-label:hover {
+  cursor: default;
 }
