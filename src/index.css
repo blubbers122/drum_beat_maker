@@ -1,8 +1,11 @@
+@font-face {
+  font-family: metropolis;
+  src:url("Metropolis-SemiBold.otf");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: metropolis;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: gray;
@@ -15,17 +18,19 @@ code {
 }
 
 #beat-maker-container {
-  width: 820px;
-  height: 525px;
-  background: black;
+  height: 57%;
+  width: 80%;
+  background: #8b0000;
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
   margin: auto;
-  border: 2px solid white;
+  box-shadow: -5px 5px #660000;
+  border: 2px solid #660000;
   border-radius: 10px;
+  text-shadow: -2px 2px #333333;
 }
 
 #title {
@@ -38,40 +43,55 @@ code {
 }
 
 #beat-count-label {
-  width: 722px;
-  margin: auto 8px auto auto;
+  width: 84%;
+  margin-left: 14%;
 }
 
 .count {
   text-align: center;
-  width: 41px;
-  margin: 2px;
+  width: 6.25%;
 }
 
 #labels-and-grid {
-  width: 818px;
+  width: 100%;
+  height: 70%;
   margin: 0px;
+  padding: 0px;
 }
 
-#drum-label {
-  margin: 2px auto auto 8px;
+#labels {
+  width: 12%;
+  height: 100%;
+}
+
+.drum-label:last-child {
+  border-bottom: 1px solid #660000;
+}
+
+.drum-label {
+  margin: 0px;
+  margin-left: 0px;
   padding: 0px;
-  height: 32px;
-  text-align: right;
-  padding-top: 5px;
+  height: 8.3%;
+  border-top: 1px solid #660000;
+  text-align: center;
 }
 
 #composer-grid-box {
-  width: 722px;
-  height: 413px;
-  margin: auto 5px;
+  position: absolute;
+  left: 16%;
+  width: 80%;
+  height: 70%;
+  margin: auto;
   border-radius: 10px;
-  border: 1px solid white;
+  border: 1px solid #bb0000;
+  background: #580000;
 }
 
-#drum-row {
-  width: 720px;
-  margin: 0px;
+.composer-column {
+  width: 6.25%;
+  height: 100%;
+  padding: 2px;
 }
 
 #count-bar-container {
@@ -92,22 +112,23 @@ code {
 }
 
 .note {
-  border: 1px solid gray;
-  width: 41px;
-  height: 32px;
+  border: 1px solid #333333;
+  width: 100%;
+  height: 8.3%;
   border-radius: 10px;
-  margin: 2px;
+  box-shadow: -2px 2px #333333;
+  background: black;
 }
 
 .note:hover {
-  border: 1px solid white;
+  border: 1px solid gray;
   background: #111111;
   cursor: pointer;
 }
 
 #control-panel-container {
-  margin: 10px auto 10px 100px;
-  width: 695px;
+  margin: 1em auto auto 16%;
+  width: 80%;
   height: 30px;
   border-radius: 10px;
 }
@@ -135,12 +156,12 @@ i:hover {
 }
 
 #bpm {
-  width: 30px;
+  width: 34px;
   margin-left: 20px;
   margin-right: 5px;
   background: black;
   color: white;
-  border: 1px solid white;
+  border: 1px solid #660000;
   border-radius: 4px;
 }
 

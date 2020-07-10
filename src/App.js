@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 import $ from "jquery";
 
 function App() {
@@ -101,7 +100,7 @@ export class BeatMaker extends React.Component {
 
     if (url == "clear note") {
       $(currentNote).attr("velocity", 0);
-      $(currentNote).css("background", "none");
+      $(currentNote).css("background", "black");
       selectedNotes.splice(selectedNotes.indexOf(currentNote), 1)
     }
     else {
@@ -114,7 +113,7 @@ export class BeatMaker extends React.Component {
           break;
         case "1":
           $(currentNote).attr("velocity", 0);
-          $(currentNote).css("background", "none");
+          $(currentNote).css("background", "#000000");
           selectedNotes.splice(selectedNotes.indexOf(currentNote), 1)
           break;
         case "2":
@@ -243,23 +242,27 @@ export class BeatMaker extends React.Component {
 
   render() {
     return (
-      <div id="beat-maker-container">
-        <h1 id="title">Drum Beat Maker</h1>
-        <div id="beat-count-label" className="row">
-          {this.state.notePosition.map(note => (
-            <h6 id={"count" + note} className="count">{note}</h6>
-          ))}
+      <>
+        <div class="bg-dark text-center p-2" id="instructions-container">
+          <h3>Controls</h3>
+          <p>Left click to place notes on the grid, multiple clicks adjust the volume of the note. </p>
+          <p>Middle click to erase notes.</p>
         </div>
-        <div id="labels-and-grid" className="row">
-          <div>
-            {this.state.instrumentBank.map(instrument => (
-              <h6 id="drum-label">{instrument.drum}</h6>
-            ))
-            }
+        <div id="beat-maker-container" class="container">
+          <h1 id="title" class="mt-3">DRUM BEAT MAKER</h1>
+          <div id="beat-count-label" className="row">
+            {this.state.notePosition.map(note => (
+              <h6 id={"count" + note} className="count">{note}</h6>
+            ))}
           </div>
-          <div id="composer-grid-box">
-            <div id="drum-row" className="row">
-              
+          <div id="labels-and-grid" className="row">
+            <div id="labels">
+              {this.state.instrumentBank.map((instrument, index) => (
+                  <h6 className={"drum-label"}>{instrument.drum}</h6>
+              ))
+              }
+            </div>
+            <div id="composer-grid-box" class="container p-0 row">
               {this.state.notePosition.map(pos => (//creates every row
                 <Instrument
                   bank={this.state.instrumentBank}
@@ -268,20 +271,20 @@ export class BeatMaker extends React.Component {
               ))}
             </div>
           </div>
+          <ControlPanel
+            paused={this.state.paused}
+            callback={(control) => this.handleControls(control)}
+            bpm={this.state.bpm}
+            input={this.changeInput.bind(this)}/>
         </div>
-        <ControlPanel
-          paused={this.state.paused}
-          callback={(control) => this.handleControls(control)}
-          bpm={this.state.bpm}
-          input={this.changeInput.bind(this)}/>
-      </div>
+      </>
     )
   }
 }
 
 const Instrument = props => {
   return (
-    <div>
+    <div className="composer-column">
       {props.bank.map(instrument => (//creates every column
         <div
           className="note"
