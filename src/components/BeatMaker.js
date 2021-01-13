@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 import ControlPanel from './ControlPanel';
+import NoteGrid from './NoteGrid';
 
 const BeatMaker = () => {
   const [bpm, setBpm] = useState(90);
+  const [notes, setNotes] = useState([[1, 2, 1], [1, 2, 3]]);
 
   const startBeat = () => {
     console.log('"starting beat"');
@@ -18,6 +20,7 @@ const BeatMaker = () => {
           setBpm={(event) => setBpm(event.target.value)}
           startBeat={startBeat}
         />
+        <NoteGrid notes={notes} setNotes={setNotes} />
       </div>
     </div>
   );
